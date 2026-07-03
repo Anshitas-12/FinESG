@@ -1,0 +1,34 @@
+spring:
+  application:
+    name: finesg
+  datasource:
+    url: jdbc:sqlite:./finesg.db
+    driver-class-name: org.sqlite.JDBC
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.community.dialect.SQLiteDialect
+  ai:
+    openai:
+      base-url: http://localhost:1234
+      api-key: lm-studio
+      chat:
+        options:
+          model: local-model
+          temperature: 0.7
+          max-tokens: 2000
+
+server:
+  port: 8080
+
+app:
+  jwt:
+    secret: ZmVlZHZhbHVlZm9yd2FyZGluZHVzdHJ5aW5kdXN0cnljaGFuY2VzdG9tYWNoYWNjZXA=
+    expiration-minutes: 30
+  cookie:
+    name: access_token
+  context:
+    max-tokens: 1200
