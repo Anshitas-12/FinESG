@@ -1,0 +1,86 @@
+/* Custom animations and utilities */
+@layer utilities {
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+/* Smooth transitions */
+* {
+    transition-property: background-color, border-color, color;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+/* Dark mode specific styles */
+.dark {
+    color-scheme: dark;
+}
+
+/* Input focus styles */
+input:focus {
+    box-shadow: 0 0 0 3px rgba(var(--primary), 0.1);
+}
+
+/* Message bubble animations */
+div[class*="max-w-md"] {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Hover effects */
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* improved suggestion card styling with better spacing and padding */
+.suggestion-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 160px;
+    overflow: hidden;
+}
+
+.suggestion-card p {
+    line-height: 1.6;
+    word-wrap: break-word;
+    white-space: normal;
+    flex-grow: 1;
+    margin-top: auto;
+}
+
+.suggestion-card h3 {
+    word-wrap: break-word;
+    white-space: normal;
+}
+
+/* Add light orange hover effect to suggestion cards */
+.suggestion-card:hover {
+    /* Applied light orange background color and subtle orange shadow to all card hovers */
+    box-shadow: 0 2px 8px rgba(249, 115, 22, 0.15);
+    background-color: rgba(254, 230, 207, 0.5);
+}
+
+.dark .suggestion-card:hover {
+    /* Applied light orange for dark mode as well */
+    background-color: rgba(124, 45, 18, 0.2);
+}
