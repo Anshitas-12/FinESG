@@ -17,7 +17,7 @@ spring:
       api-key: lm-studio
       chat:
         options:
-          model: local-model
+          model: finesg4
           temperature: 0.7
           max-tokens: 2000
 
